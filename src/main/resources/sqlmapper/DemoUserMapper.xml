@@ -4,16 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.demo.mapper.UserDemoMapper">
     <resultMap type="com.demo.domain.UserDemo" id="demoUserMap">
-        <result column="user_id" property="userId"/>
+        <result column="id" property="id"/>
         <result column="user_name" property="userName"/>
         <result column="password" property="password"/>
     </resultMap>
 
-    <select id="getAllUser" resultMap="demoUserMap">
+    <select id="allUser" resultMap="demoUserMap">
         select * from user_demo
     </select>
     <insert id="addUser">
         insert into user_demo(user_name,password) values(#{userName},#{password})
     </insert>
+    <select id="getUserByName" resultMap="demoUserMap">
+        SELECT * FROM user_demo where user_name=#{userName}
+    </select>
 </mapper>
 

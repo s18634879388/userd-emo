@@ -1,6 +1,8 @@
 package com.demo.config;
 
+import com.demo.domain.LoginLog;
 import com.demo.domain.UserDemo;
+import com.demo.mapper.LoginLogMapper;
 import com.demo.mapper.UserDemoMapper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -66,5 +68,9 @@ public class MyMybatisConfig {
         return sqlSessionTemplate.getMapper(UserDemoMapper.class);
     }
 
+    @Bean
+    public LoginLogMapper loginLogMapper(){
+        return sqlSessionTemplate.getMapper(LoginLogMapper.class);
+    }
 
 }

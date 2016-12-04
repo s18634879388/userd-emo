@@ -29,10 +29,10 @@ public class Mydatasouce {
         comboPooledDataSource.setDriverClass(driverclass);
         comboPooledDataSource.setUser(user);
         comboPooledDataSource.setPassword(password);
-        comboPooledDataSource.setInitialPoolSize(5);
-        comboPooledDataSource.setMinPoolSize(2);
-        comboPooledDataSource.setMaxPoolSize(10);
-        comboPooledDataSource.setIdleConnectionTestPeriod(3000);
+        comboPooledDataSource.setInitialPoolSize(5);//初始化获取5个连接
+        comboPooledDataSource.setMinPoolSize(2);//最小连接数
+        comboPooledDataSource.setMaxPoolSize(10);//最大连接数
+        comboPooledDataSource.setIdleConnectionTestPeriod(3000);//每3000秒检查连接池中的空闲连接
         return comboPooledDataSource;
     }
 

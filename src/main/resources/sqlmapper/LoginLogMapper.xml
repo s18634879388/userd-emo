@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mapper.LoginLogMapper">
+    <resultMap type="com.demo.domain.LoginLog" id="logMap">
+        <result column="id" property="id"/>
+        <!--<result column="flag" property="flag"/>-->
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+
+    <update id="updateLog">
+        update login_log set is_delete=#{1} where id=#{0}
+    </update>
+    <insert id="addLog">
+        insert into login_log(id,is_delete) values(#{id},#{isDelete})
+    </insert>
+    <select id="getLogById" resultMap="logMap">
+        SELECT * from login_log where id=#{id}
+    </select>
+
+</mapper>
+
