@@ -65,11 +65,12 @@ public class UserDemoController {
 
     @RequestMapping(value = "/demo",method = RequestMethod.GET)
     public String login(){
-        return "regist";
+        return "loginpage";
     }
     @RequestMapping(value = "/tologin",method = RequestMethod.POST)
     public String tologin(@ModelAttribute UserDemo userDemo,Model model){
         int res = userDemoService.login(userDemo);
+        userDemo.setId(res);
         String message1 = "";
         if (res == -1){
             message1 = "用户不存在";
@@ -84,5 +85,19 @@ public class UserDemoController {
             model.addAttribute("message1",message1);
             return "ok";
         }
+    }
+    @RequestMapping(value = "/registpage",method = RequestMethod.GET)
+    public String registpage(){
+        return "registpage";
+    }
+    @RequestMapping(value = "/toregist",method = RequestMethod.POST)
+    public String toregist(@ModelAttribute UserDemo userDemo, Model model){
+        userDemoService.addUser(userDemo);
+        return "loginpage";
+    }
+    @RequestMapping(value = "/tologout",method = RequestMethod.POST)
+    public String tologout(@ModelAttribute UserDemo userDemo){
+        System.out.println(userDemo.getId()+"=========");
+        return "";
     }
 }

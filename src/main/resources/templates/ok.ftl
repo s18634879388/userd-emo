@@ -1,16 +1,14 @@
 <html>
 <head>
     <title>message</title>
-    <script>
-//        function () {
-//
-//        }
-    </script>
 </head>
 <body>
-    welcome,${userDemo.userName}
+    welcome,${userDemo.userName},${userDemo.id}
 <br/>
-<button name="logout" >登出</button>阿萨德撒的
+    <form action="/users/tologout" method="post">
+        <input value="${userDemo.id}" type="text">
+        <input type="submit" value="登出"/>
+    </form>
 </body>
 
 </html>

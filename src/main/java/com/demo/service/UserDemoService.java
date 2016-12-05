@@ -39,7 +39,7 @@ public class UserDemoService {
             }else {
                 loginLogMapper.updateLog(result.getId(),1);
             }
-            return 1;
+            return result.getId();
         }
     }
 

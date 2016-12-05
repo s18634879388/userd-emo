@@ -15,6 +15,7 @@
                 <td><input type="password" name="password" /> </td>
             </tr>
             <input type="submit" value="登录"/>
+            <a href="/users/registpage">注册</a>
         </table>
     </form>
 </body>
