@@ -98,6 +98,7 @@ public class UserDemoController {
     @RequestMapping(value = "/tologout",method = RequestMethod.POST)
     public String tologout(@ModelAttribute UserDemo userDemo){
         System.out.println(userDemo.getId()+"=========");
-        return "";
+        userDemoService.logout(userDemo.getId());
+        return "loginpage";
     }
 }

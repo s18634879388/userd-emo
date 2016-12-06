@@ -3,10 +3,10 @@
     <title>message</title>
 </head>
 <body>
-    welcome,${userDemo.userName},${userDemo.id}
+    welcome,${userDemo.userName}
 <br/>
     <form action="/users/tologout" method="post">
-        <input value="${userDemo.id}" type="text">
+        <input value="${userDemo.id}" name="id" type="hidden">
         <input type="submit" value="登出"/>
     </form>
 </body>
