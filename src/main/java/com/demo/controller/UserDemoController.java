@@ -5,6 +5,8 @@ import com.demo.service.UserDemoService;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +24,13 @@ import java.util.List;
 public class UserDemoController {
     @Autowired
     UserDemoService userDemoService;
-
+    Logger logger = LoggerFactory.getLogger("com.demo.controller.UserDemoController.regist");
     @ApiOperation(value = "注册", notes = "注册")
     @RequestMapping(value = "/regist",method = RequestMethod.POST)
     @ResponseBody
     public UserDemo regist(@RequestBody UserDemo userDemo){
         userDemoService.addUser(userDemo);
+        logger.info("userDemo message {} {} {} and {}",userDemo.getId(),userDemo.getUserName(),userDemo.getPassword(),userDemo.getClass());
         return userDemo;
     }
 
@@ -63,6 +66,17 @@ public class UserDemoController {
         return userDemos;
     }
 
+
+
+
+
+
+
+
+
+    /**
+     *  添加freemarker
+     */
     @RequestMapping(value = "/demo",method = RequestMethod.GET)
     public String login(){
         return "loginpage";
